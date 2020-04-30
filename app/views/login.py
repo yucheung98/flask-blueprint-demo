@@ -1,10 +1,13 @@
 from flask import Blueprint, render_template, jsonify, request
-from .. import connection, logger
+from .. import config, logger
+import pymysql
 
 login_blue_print = Blueprint('login_blue_print', __name__)
 
 @login_blue_print.route('/login', methods=['POST'])
 def login():
+    # Connect to the database
+    connection = pymysql.connect(**config)
     req = request.json
     user_id = req['user_id']
     pwd = req['pwd']
