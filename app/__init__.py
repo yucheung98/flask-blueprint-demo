@@ -13,8 +13,7 @@ config = {
     'charset': 'utf8mb4',
     'cursorclass': pymysql.cursors.DictCursor,
 }
-# Connect to the database
-connection = pymysql.connect(**config)
+
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
